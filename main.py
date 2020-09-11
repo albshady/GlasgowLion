@@ -8,6 +8,7 @@ import bs4
 
 
 DOMAIN = "https://frontend-ifmo-2019.now.sh"
+ROOT_URL = "/js/01-intro/assets/"
 
 
 async def get_file_links(session: ClientSession, dir_path: str) -> List[str]:
@@ -43,8 +44,7 @@ async def download_file(session: ClientSession, path: str) -> None:
 async def main():
     connector = TCPConnector(ssl=False)
     async with ClientSession(connector=connector) as session:
-        root_url = "/js/01-intro/assets/"
-        file_links = await get_file_links(session, root_url)
+        file_links = await get_file_links(session, ROOT_URL)
 
         tasks = [download_file(session, file_link) for file_link in file_links]
         await asyncio.gather(*tasks)
