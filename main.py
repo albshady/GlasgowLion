@@ -2,9 +2,8 @@ import asyncio
 import os
 from typing import List
 
-from aiohttp import ClientSession, TCPConnector
-
 import bs4
+from aiohttp import ClientSession, TCPConnector
 
 
 DOMAIN = "https://frontend-ifmo-2019.now.sh"
